@@ -1,15 +1,14 @@
 import streamlit as st
 
-# --- ফেসবুক ভেরিফিকেশন কোড শুরু ---
+# --- ফেসবুক ভেরিফিকেশন কোড (Plain Response Version) ---
 params = st.query_params
 
 if "hub.mode" in params and "hub.verify_token" in params:
-    # এখানে 'my_pdf_bot_token' হলো আপনার ভেরিফাই টোকেন
     if params["hub.verify_token"] == "my_pdf_bot_token":
+        # Streamlit-এর ডিফল্ট UI বাদ দিয়ে শুধু টেক্সট পাঠানো
         st.write(params["hub.challenge"])
+        # এরপর নিচের লাইনটি যোগ করুন যাতে এটি সরাসরি রেসপন্স দেয়
         st.stop()
-# --- ফেসবুক ভেরিফিকেশন কোড শেষ ---
-
 import os
 import sys
 from pathlib import Path
