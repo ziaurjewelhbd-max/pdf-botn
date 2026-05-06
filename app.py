@@ -1,3 +1,15 @@
+import streamlit as st
+
+# --- ফেসবুক ভেরিফিকেশন কোড শুরু ---
+params = st.query_params
+
+if "hub.mode" in params and "hub.verify_token" in params:
+    # এখানে 'my_pdf_bot_token' হলো আপনার ভেরিফাই টোকেন
+    if params["hub.verify_token"] == "my_pdf_bot_token":
+        st.write(params["hub.challenge"])
+        st.stop()
+# --- ফেসবুক ভেরিফিকেশন কোড শেষ ---
+
 import os
 import sys
 from pathlib import Path
